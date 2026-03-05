@@ -3,61 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encuesta Pro - Aiven</title>
+    <title>Encuesta Premium - Aiven</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
-        body { background-color: #f8f9fa; }
-        .card { border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        /* Estilos Globales - Efecto 2026 */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); /* Degradado sutil de fondo */
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            align-items: center; /* Centrado vertical */
+        }
+
+        /* Contenedor Principal con Profundidad */
+        .card-premium {
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            border-radius: 20px; /* Bordes muy redondeados */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); /* Sombra suave y difuminada para dar volumen */
+            backdrop-filter: blur(10px); /* Efecto de cristal esmerilado sutil */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-premium:hover {
+            transform: translateY(-5px); /* Pequeña animación al pasar el mouse */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        /* Títulos Elegantes con Degradado */
+        .text-gradient {
+            background: linear-gradient(45deg, #2196F3, #21CBF3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+        }
+
+        /* Estilos de Inputs Modernos (No Planos) */
+        .form-control-premium {
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+            padding: 12px 15px;
+            background-color: #fff;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.03); /* Sombra interna sutil para dar profundidad */
+            transition: all 0.3s ease;
+        }
+
+        .form-control-premium:focus {
+            border-color: #2196F3;
+            box-shadow: 0 0 0 0.25rem rgba(33, 150, 243, 0.1), inset 0 2px 4px rgba(0,0,0,0.03);
+            background-color: #fff;
+        }
+
+        /* Botón Principal con Degradado y Sombra */
+        .btn-gradient-primary {
+            background: linear-gradient(45deg, #2196F3, #21CBF3);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            padding: 12px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3); /* Sombra de color para efecto "glow" */
+            transition: all 0.3s ease;
+        }
+
+        .btn-gradient-primary:hover {
+            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+            transform: translateY(-2px);
+            background: linear-gradient(45deg, #1e88e5, #1e88e5); /* Degradado más oscuro al hover */
+        }
+
+        /* Estilos de Tabla Admin (Limpia y Moderna) */
+        .table-premium {
+            border-collapse: separate;
+            border-spacing: 0 10px; /* Espaciado entre filas */
+        }
+
+        .table-premium thead th {
+            border: none;
+            color: #6c757d;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            padding-left: 15px;
+        }
+
+        .table-premium tbody tr {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03); /* Sombra suave por fila */
+            border-radius: 10px;
+        }
+
+        .table-premium tbody td {
+            border: none;
+            padding: 15px;
+            vertical-align: middle;
+        }
+
+        .table-premium tbody tr td:first-child {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        .table-premium tbody tr td:last-child {
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        /* Botón de Admin (Más sutil) */
+        .btn-link-premium {
+            color: #6c757d;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .btn-link-premium:hover {
+            color: #2196F3;
+        }
+
+        /* Fondo para Vista Admin */
+        #vista-admin {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
     </style>
 </head>
 <body class="py-5">
     <div class="container">
+        
         <div id="vista-usuario" class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card p-4">
-                    <h2 class="text-center mb-4 text-primary">📝 Nueva Encuesta</h2>
+            <div class="col-md-7 col-lg-6">
+                <div class="card card-premium p-5">
+                    <h2 class="text-center mb-5 text-gradient">📝 Encuesta de Satisfacción</h2>
+                    
                     <form id="form-encuesta">
-                        <div class="mb-3">
-                            <label class="form-label">Nombre</label>
-                            <input type="text" id="nombre" class="form-control" required>
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-secondary">Nombre Completo</label>
+                            <input type="text" id="nombre" class="form-control form-control-premium" placeholder="Ej. Juan Pérez" required>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Correo</label>
-                            <input type="email" id="correo" class="form-control" required>
+                        
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-secondary">Correo Electrónico</label>
+                            <input type="email" id="correo" class="form-control form-control-premium" placeholder="juan.perez@email.com" required>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Comentario</label>
-                            <textarea id="comentario" class="form-control" rows="3" required></textarea>
+                        
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-secondary">Tu Comentario</label>
+                            <textarea id="comentario" class="form-control form-control-premium" rows="4" placeholder="Cuéntanos tu experiencia..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100">Enviar a la Nube</button>
+                        
+                        <div class="d-grid mt-5">
+                            <button type="submit" class="btn btn-gradient-primary btn-lg">Enviar a la Nube</button>
+                        </div>
                     </form>
-                    <button class="btn btn-link mt-3 text-secondary" id="btn-ver-admin">Acceso Administrador</button>
+                    
+                    <div class="text-center mt-4">
+                        <button class="btn btn-link-premium" id="btn-ver-admin">Acceso Administrador</button>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div id="vista-admin" style="display: none;">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2 class="text-dark">📊 Panel de Control</h2>
-                <button class="btn btn-outline-secondary" id="btn-volver">Cerrar Sesión</button>
+            <div class="d-flex justify-content-between align-items-center mb-5 pb-3 border-bottom">
+                <h2 class="text-gradient">📊 Panel de Control Premium</h2>
+                <button class="btn btn-outline-secondary rounded-pill px-4" id="btn-volver">Cerrar Sesión</button>
             </div>
-            <div class="card p-3">
-                <div class="table-responsive">
-                    <table id="tabla-datos" class="table table-hover align-middle">
-                        <thead class="table-dark">
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Correo</th>
-                                <th>Comentario</th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
+            
+            <div class="table-responsive">
+                <table id="tabla-datos" class="table table-premium align-middle">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Comentario</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
             </div>
         </div>
+        
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script src="script.js"></script>
 </body>
 </html>
