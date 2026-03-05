@@ -34,6 +34,16 @@ app.get('/ver-datos', (req, res) => {
         res.json(results);
     });
 });
+// Ruta para borrar un comentario por ID
+app.delete('/borrar/:id', (req, res) => {
+    const { id } = req.params;
+    const sql = "DELETE FROM respuestas_encuesta WHERE id = ?";
+    
+    connection.query(sql, [id], (err, result) => {
+        if (err) return res.status(500).send(err);
+        res.send("Registro eliminado correctamente");
+    });
+});
 
 // Render asigna el puerto automáticamente
 const PORT = process.env.PORT || 3000;
