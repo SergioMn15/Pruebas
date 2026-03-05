@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta en la Nube</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <section id="vista-usuario">
+            <h1>📝 Envía tu Comentario</h1>
+            <form id="form-encuesta">
+                <input type="text" id="nombre" placeholder="Nombre completo" required>
+                <input type="email" id="correo" placeholder="Correo electrónico" required>
+                <textarea id="comentario" placeholder="Escribe aquí tu mensaje..." required></textarea>
+                <button type="submit" id="btn-enviar">Enviar a Aiven</button>
+            </form>
+            <button class="btn-secundario" id="btn-ver-admin">Acceso Admin</button>
+        </section>
+
+        <section id="vista-admin" style="display: none;">
+            <h1>📊 Panel de Administración</h1>
+            <div class="table-container">
+                <table id="tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Comentario</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+            <button class="btn-secundario" id="btn-volver">Volver al Formulario</button>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
