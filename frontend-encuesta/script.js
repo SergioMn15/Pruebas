@@ -31,8 +31,17 @@ document.getElementById('form-encuesta').addEventListener('submit', async (e) =>
     }
 });
 
-// --- 2. VER DATOS (ADMIN) ---
+// --- 2. VER DATOS (ADMIN) CON CONTRASEÑA ---
 document.getElementById('btn-ver-admin').addEventListener('click', async () => {
+    const claveCorrecta = "TuPassword123"; // <-- ¡CAMBIA ESTO POR TU CLAVE!
+    const intento = prompt("Introduce la contraseña de administrador:");
+
+    if (intento !== claveCorrecta) {
+        alert("Acceso denegado. Contraseña incorrecta.");
+        return; // Detiene la ejecución si la clave está mal
+    }
+
+    // Si la clave es correcta, mostramos la vista admin y traemos los datos
     vistaUsuario.style.display = 'none';
     vistaAdmin.style.display = 'block';
 
@@ -41,7 +50,7 @@ document.getElementById('btn-ver-admin').addEventListener('click', async () => {
         const datos = await response.json();
         
         const cuerpoTabla = document.querySelector('#tabla-datos tbody');
-        cuerpoTabla.innerHTML = ""; // Limpiar tabla antes de llenar
+        cuerpoTabla.innerHTML = ""; 
 
         datos.forEach(fila => {
             cuerpoTabla.innerHTML += `
