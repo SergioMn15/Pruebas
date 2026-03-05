@@ -33,7 +33,7 @@ document.getElementById('form-encuesta').addEventListener('submit', async (e) =>
 
 // --- 2. VER DATOS (ADMIN) CON CONTRASEÑA ---
 document.getElementById('btn-ver-admin').addEventListener('click', async () => {
-    const claveCorrecta = "TuPassword123"; // <-- ¡CAMBIA ESTO POR TU CLAVE!
+    const claveCorrecta = "admin"; // <-- ¡CAMBIA ESTO POR TU CLAVE!
     const intento = prompt("Introduce la contraseña de administrador:");
 
     if (intento !== claveCorrecta) {
