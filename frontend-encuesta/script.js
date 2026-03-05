@@ -1,5 +1,5 @@
 // IMPORTANTE: Aquí pegarás la URL que te dé Render después
-const URL_BACKEND = "https://TU-APP-EN-RENDER.onrender.com"; 
+const URL_BACKEND = "https://backend-encuesta-zkgb.onrender.com"; 
 
 const vistaUsuario = document.getElementById('vista-usuario');
 const vistaAdmin = document.getElementById('vista-admin');
